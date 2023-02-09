@@ -21,7 +21,6 @@ const upload = multer({
 module.exports = {
   file: (name, directory, types, required = true) => (req, res, next) => {
     upload.single(name)(req, res, (err) => {
-      console.log(err)
       if (err) {
         return res.status(400).json({
           message: 'File not uploaded',
@@ -34,14 +33,6 @@ module.exports = {
       }
 
       if (req.file) {
-        let valid = false;
-        // valid = !!types.test(req.file.mimetype);
-        //
-        // if (!valid) {
-        //   return res.status(402).json({
-        //     message: 'file should have another format',
-        //   });
-        // }
         req.fileUrl = `./uploads/${req.file.filename}`;
       }
 

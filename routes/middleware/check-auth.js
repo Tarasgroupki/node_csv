@@ -1,5 +1,4 @@
 const jwt = require('jsonwebtoken');
-const User = require('../../models/user');
 const { secretJwtKey } = require('../../config');
 
 module.exports = {
@@ -10,7 +9,6 @@ module.exports = {
 
         req.userData = jwt.verify(token, secretJwtKey);
         // - user checking
-        // req.userIsset = await User.findOne({ _id: req.userData.userId });
         if (req.userData.type === 'user') {
           return next();
         }

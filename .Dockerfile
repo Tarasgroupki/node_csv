@@ -1,4 +1,4 @@
-FROM node:16.15-alpine
+FROM node:14
 
 ARG APP_DIR=app
 RUN mkdir -p ${APP_DIR}
@@ -8,7 +8,7 @@ COPY package*.json ./
 RUN npm cache clean -f
 RUN npm install \
  && npm audit fix \
-# && npm rebuild bcrypt --build-from-source
+ && npm rebuild bcrypt --build-from-source
 
 COPY . .
 

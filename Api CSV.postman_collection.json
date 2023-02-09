@@ -1,0 +1,180 @@
+{
+	"info": {
+		"_postman_id": "3072f344-10b3-4f9a-b366-1a01562939c9",
+		"name": "Api CSV",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "4446340"
+	},
+	"item": [
+		{
+			"name": "Orders",
+			"item": [
+				{
+					"name": "save orders",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "csv_file_url",
+									"type": "file",
+									"src": "SKmPvIB8d/sample.csv"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:2700/api/orders",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2700",
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0eXBlIjoidXNlciIsInVzZXJMb2dpbiI6IlVzZXIxIiwiaWF0IjoxNjc1OTQ2ODUyLCJleHAiOjE2NzU5ODI4NTJ9.JKQ6hVpW3KseVjJAi4FjkEwVPigAokrjugZ55zCK3bE",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2700/api/orders?page=1&perPage=10&sortBy=_id&asc=-1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2700",
+							"path": [
+								"api",
+								"orders"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "perPage",
+									"value": "10"
+								},
+								{
+									"key": "sortBy",
+									"value": "_id"
+								},
+								{
+									"key": "asc",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "order",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "orders by customer",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2700/api/orders/3740/byCustomer",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2700",
+							"path": [
+								"api",
+								"orders",
+								"3740",
+								"byCustomer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "orders by product_name",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:2700/api/orders/Fantastic Concrete Bike/byProductName",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2700",
+							"path": [
+								"api",
+								"orders",
+								"Fantastic Concrete Bike",
+								"byProductName"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"login\": \"User1\",\r\n    \"password\": \"1234567890\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:2700/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "2700",
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

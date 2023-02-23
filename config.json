@@ -12,10 +12,6 @@
       "password": "admin",
       "uri": "localhost:27017"
     },
-    "sms": {
-      "login": "SETKA2020",
-      "password": "69K2623"
-    },
     "user": [
       {
         "login": "User1",
